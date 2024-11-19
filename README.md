@@ -1,6 +1,4 @@
-Here's a revised version of the **README.md** file that improves the structure, flow, and readability:
 
----
 
 # **TrafficFailoverAutomation**
 
@@ -89,7 +87,7 @@ To run this project, ensure that you have the following installed:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/TrafficFailoverAutomation.git
+   git clone https://github.com/sshukla90/TrafficFailoverAutomation.git
    cd TrafficFailoverAutomation
    ```
 
