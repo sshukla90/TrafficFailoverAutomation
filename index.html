@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Traffic Failover Automation</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h1>Traffic Failover Automation</h1>
+      <p>Automating the failover of network traffic between routers by manipulating BGP attributes such as Local Preference (LP) and AS Path Prepending. This project ensures seamless failover during maintenance, outages, or performance degradation.</p>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>Automated Health Checks: Verifies the status of Router 1.</li>
+        <li>Dynamic BGP Attribute Adjustment: Updates AS Path Prepending and Local Preference to shift traffic.</li>
+        <li>Failover Verification: Ensures successful redirection of traffic.</li>
+        <li>Notifications: Sends email or Slack alerts during the failover process.</li>
+        <li>Extensible Workflow: Easily modify the BPMN workflow for additional use cases.</li>
+      </ul>
+    </section>
+
+    <section id="workflow">
+      <h2>Workflow</h2>
+      <p>The Traffic Failover Workflow consists of the following steps:</p>
+      <ol>
+        <li><strong>Start Event</strong>: Manual or automated trigger for failover.</li>
+        <li><strong>Health Check</strong>: Ping or telemetry-based check of Router 1.</li>
+        <li><strong>Decision Gateway</strong>: 
+          <ul>
+            <li>If healthy: Terminate workflow.</li>
+            <li>If unhealthy: Proceed to failover.</li>
+          </ul>
+        </li>
+        <li><strong>BGP Attribute Update</strong>: Reduce LP or prepend AS path on Router 1, and increase LP or remove prepending on Router 2.</li>
+        <li><strong>Verification</strong>: Validate traffic redirection via BGP route advertisements.</li>
+        <li><strong>Notification</strong>: Alert stakeholders via email or Slack.</li>
+        <li><strong>End Event</strong>: Terminate workflow after successful execution.</li>
+      </ol>
+    </section>
+
+    <section id="installation">
+      <h2>Installation</h2>
+      <p>Clone the repository:</p>
+      <pre><code>git clone https://github.com/yourusername/TrafficFailoverAutomation.git</code></pre>
+      <p>Install dependencies:</p>
+      <pre><code>pip install -r requirements.txt</code></pre>
+      <p>Import the <code>traffic-failover.bpmn</code> file into Camunda Modeler.</p>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      <p>To use the Traffic Failover Automation:</p>
+      <ul>
+        <li>Start the Workflow using Camunda cockpit to manually trigger the workflow or integrate with an API.</li>
+        <li>Run Python Scripts:</li>
+        <ul>
+          <li>Health Check: <code>python scripts/health_check.py</code></li>
+          <li>BGP Attribute Update: <code>python scripts/bgp_failover.py</code></li>
+          <li>Send Notification: <code>python scripts/notification.py</code></li>
+        </ul>
+        <li>Verify Results by checking the logs or router configurations to validate traffic redirection.</li>
+      </ul>
+    </section>
+
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <p>Contributions are welcome! Please fork the repository and submit a pull request with detailed descriptions of your changes.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Traffic Failover Automation. Licensed under the MIT License.</p>
+  </footer>
+</body>
+</html>
